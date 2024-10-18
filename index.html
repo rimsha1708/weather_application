@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Weather App</h2>
+            <ul>
+                <li><a href="index.html" id="dashboard-link">Dashboard</a></li>
+                <li><a href="tables.html" id="tables-link">Tables</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="top-bar">
+                <input type="text" id="searchCity" placeholder="Search City..." class="search-bar">
+                <button onclick="getResults(document.getElementById('searchCity').value)">Search</button>
+                <div class="user-profile">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.h1Rch1G9M7qenMCe1tHsqAHaHa&pid=Api&P=0&h=220" alt="Profile Image" class="profile-img">
+                </div>
+            </div>
+            <div class="weather-data-section">
+                <h3>Weather Data Based on City</h3>
+                <div id="weatherData">Weather Data will be displayed here...</div>
+            </div>
+            <div class="charts-section">
+                <div class="chart-container">
+                    <h3>Vertical Bar Chart</h3>
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Doughnut Chart</h3>
+                    <canvas id="doughnutChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Line Chart</h3>
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('dashboard-link').classList.add('active');
+    </script>
+</body>
+</html>

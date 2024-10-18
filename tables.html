@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Tables</title>
+    <link rel="stylesheet" href="tables.css">
+    <script defer src="table.js"></script>
+    <script defer src="chatbot.js"></script> <!-- Add chatbot.js -->
+</head>
+<body onload="getUserLocation()">
+    <div class="container">
+        <div class="sidebar">
+            <h2>Weather App</h2>
+            <ul>
+                <li><a href="index.html" id="dashboard-link">Dashboard</a></li>
+                <li><a href="tables.html" id="tables-link" class="active">Tables</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="user-profile">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.h1Rch1G9M7qenMCe1tHsqAHaHa&pid=Api&P=0&h=220" alt="Profile Image" class="profile-img">
+                </div>
+                <button class="toggle-button" onclick="toggleTemperatureUnit()">Toggle Unit (°C/°F)</button>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="searchCity" placeholder="Search City..." class="search-bar">
+                <button id="searchButton" class="search-button" onclick="searchCity()">Enter</button>
+            </div>
+
+            <div class="filter-section">
+                <button onclick="sortAscending()">Sort Ascending (Temp)</button>
+                <button onclick="sortDescending()">Sort Descending (Temp)</button>
+                <button onclick="filterRain()">Show Only Rainy Days</button>
+                <button onclick="showHighestTemperature()">Show Highest Temp Day</button>
+                <button onclick="resetData()">Reset Data</button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="spinner" class="spinner" style="display:none;">Loading...</div>
+
+            <div class="content-layout">
+                <div class="left-column">
+                    <div class="table-section">
+                        <h3>Weather Forecast</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Temperature</th>
+                                    <th>Condition</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+
+                        <!-- Pagination controls -->
+                        <div class="pagination">
+                            <button id="prevButton" onclick="previousPage()" disabled>Previous</button>
+                            <button id="nextButton" onclick="nextPage()">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="chatbot-section">
+                        <h3>Chatbot</h3>
+                        <div class="chat-bar">
+                            <input type="text" id="chatInput" placeholder="Ask the chatbot..." class="chat-input">
+                            <button id="send-button" onclick="sendMessage()">Send</button>
+                        </div>
+                        <div class="answer-area" id="chatAnswerArea">
+                            <p>Chatbot answers will be displayed here...</p>
+                        </div>
+                        <div id="typing-indicator" style="display:none;">Chatbot is typing...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
